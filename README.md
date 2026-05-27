@@ -1,26 +1,26 @@
-# Buku Tamu Pengunjung
+# Visitor Guestbook System
 
-Sistem informasi buku tamu berbasis Laravel untuk pencatatan pengunjung di Pengadilan Tata Usaha Negara Medan. Aplikasi ini dirancang untuk memudahkan registrasi tamu, pemantauan kehadiran, serta pembuatan laporan harian dan bulanan secara lebih rapi dan terstruktur.
+A Laravel-based visitor management system designed for the Medan State Administrative Court (Pengadilan Tata Usaha Negara Medan). This application streamlines guest registration, attendance tracking, and the generation of structured daily and monthly reports.
 
-## Ringkasan
+## Overview
 
-Aplikasi ini berfokus pada pencatatan kunjungan berdasarkan kategori tamu, seperti tamu sidang, layanan PTSP, tamu dinas, dan tamu mahasiswa. Selain form input pengunjung, tersedia juga dashboard ringkas, daftar kehadiran berdasarkan nomor perkara, serta ekspor laporan ke Excel.
+This application categorizes visits into specific types to keep everything organized. Alongside the visitor input forms, it features a quick-glance dashboard, an attendance tracker based on case numbers, and a feature to export reports directly to Excel.
 
-## Fitur Utama
+## Key Features
 
-- Dashboard utama dengan navigasi kategori kunjungan yang cepat.
-- Form registrasi untuk:
-  - Tamu Sidang
-  - Layanan PTSP
-  - Tamu Dinas
-  - Tamu Mahasiswa
-- Halaman kehadiran untuk melihat status tamu berdasarkan nomor perkara.
-- Laporan harian yang menampilkan total tamu dan rincian kunjungan hari ini.
-- Laporan bulanan untuk rekap kunjungan per periode.
-- Export laporan ke Excel.
-- Tampilan UI modern, responsif, dan lebih nyaman digunakan di desktop maupun perangkat mobile.
+- **Quick Navigation Dashboard:** A centralized hub to easily access different visit categories.
+- **Tailored Registration Forms:**
+  - Court Hearing Guests (*Tamu Sidang*)
+  - PTSP Services (*Layanan PTSP*)
+  - Official/Agency Guests (*Tamu Dinas*)
+  - Student Guests (*Tamu Mahasiswa*)
+- **Attendance Tracking:** Check and monitor guest status by their specific case number.
+- **Daily Reports:** View today's total guests and detailed visit logs.
+- **Monthly Reports:** Get a comprehensive summary of visits over a specific period.
+- **Excel Export:** Easily download your reports in `.xlsx` format.
+- **Responsive UI:** A clean, modern interface that works seamlessly on both desktop and mobile devices.
 
-## Tumpukan Teknologi
+## Tech Stack
 
 - Laravel 10
 - PHP 8.1+
@@ -29,89 +29,122 @@ Aplikasi ini berfokus pada pencatatan kunjungan berdasarkan kategori tamu, seper
 - Maatwebsite Excel
 - Laravel Sanctum
 
-## Struktur Halaman
+## Page Structure
 
-- `/dashboard` - Halaman utama navigasi kunjungan.
-- `/pihak` - Form tamu sidang.
-- `/ptsp` - Form layanan PTSP.
-- `/dinas` - Form tamu dinas.
-- `/mahasiswa` - Form tamu mahasiswa.
-- `/kehadiran` - Daftar kehadiran berdasarkan nomor perkara.
-- `/laporan` - Laporan harian.
-- `/bulanan` - Laporan bulanan.
+- `/dashboard` - Main navigation hub.
+- `/pihak` - Form for court hearing guests.
+- `/ptsp` - Form for PTSP services.
+- `/dinas` - Form for official guests.
+- `/mahasiswa` - Form for student guests.
+- `/kehadiran` - Attendance list grouped by case number.
+- `/laporan` - Daily reports.
+- `/bulanan` - Monthly reports.
 
-## Prasyarat
+## Prerequisites
 
-- PHP 8.1 atau lebih baru
+Make sure your environment meets the following requirements:
+- PHP 8.1 or higher
 - Composer
-- Node.js dan npm
-- Database MySQL atau MariaDB
+- Node.js & npm
+- MySQL or MariaDB
 
-## Instalasi
+## Installation
 
-1. Clone repository ini.
-2. Jalankan instalasi dependency backend dan frontend:
+1. Clone this repository to your local machine.
+2. Install the backend and frontend dependencies:
 
 ```bash
 composer install
 npm install
-```
 
-3. Salin file environment dan atur konfigurasi aplikasi:
+3. Copy the environment file and generate the application key:
 
 ```bash
 Copy-Item .env.example .env
 php artisan key:generate
 ```
 
-4. Sesuaikan pengaturan database di file `.env`.
-5. Jalankan migrasi database jika diperlukan:
+4. Open the `.env` file and configure your database settings.
+5. Run the database migrations:
 
 ```bash
 php artisan migrate
 ```
 
-6. Jalankan aplikasi pada dua terminal berbeda:
+6. Start the development servers in two separate terminals:
 
 ```bash
 php artisan serve
 npm run dev
 ```
 
-## Cara Menggunakan
+## How to Use
 
-1. Buka halaman utama aplikasi.
-2. Pilih kategori tamu sesuai kebutuhan kunjungan.
-3. Isi form data pengunjung.
-4. Lihat ringkasan data pada dashboard laporan.
-5. Gunakan menu laporan harian atau bulanan untuk rekap dan ekspor data.
+1. Open the main dashboard in your browser.
+2. Select the guest category that matches the visit.
+3. Fill out the visitor data form.
+4. Check the quick summary on the dashboard.
+5. Head over to the daily or monthly report menus to review logs or export the data to Excel.
 
-## Tangkapan Layar
+## Screenshots
 
-Bagian ini menampilkan screenshot hasil website yang disimpan di folder `public/docs/screenshots/`.
+Here's a quick look at the application (images are stored in `public/docs/screenshots/`).
 
-### Dashboard
+### Main Dashboard
 
 ![Dashboard utama](public/docs/screenshots/dashboard.png)
 
-### Form Kunjungan
+### Visitor Form
 
 ![Form tamu sidang](public/docs/screenshots/form-pihak.png)
 
-### Laporan Harian
+### Daily Report
 
 ![Laporan harian](public/docs/screenshots/laporan-harian.png)
 
-### Kehadiran
+### Attendance Page
 
 ![Halaman kehadiran](public/docs/screenshots/kehadiran.png)
 
-## Catatan Pengembangan
+## Development Notes
 
-- Aplikasi memakai Blade untuk render halaman.
-- Export laporan menggunakan library Excel.
-- Struktur route sudah dipisah berdasarkan kebutuhan kunjungan dan laporan.
+- The application uses Laravel Blade for rendering views.
+- Report exports are handled by the `maatwebsite/excel` library.
+- The route structure is modularized based on visit types and report needs.
 
-## Lisensi
+## License
 
-Proyek ini menggunakan lisensi MIT.
+This project is open-sourced software licensed under the MIT license.
+
+## Author
+
+## Author
+
+<table width="100%" style="border: none;">
+  <tr style="border: none;">
+    <td align="left" width="50%" style="border: none;">
+      <strong>Ergy David Lundy Tumanggor</strong>
+    </td>
+    <td align="right" width="50%" style="border: none;">
+      <a href="https://www.linkedin.com/in/ergy-david-lundy/">
+        <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" />
+      </a>
+      <a href="https://github.com/Ruminas99">
+        <img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" alt="GitHub" />
+      </a>
+    </td>
+  </tr>
+    <tr style="border: none;">
+    <td align="left" width="50%" style="border: none;">
+      <strong>Joenathan Daniel Sihombing</strong>
+    </td>
+    <td align="right" width="50%" style="border: none;">
+      <a href="#">
+        <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" />
+      </a>
+      <a href="#">
+        <img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" alt="GitHub" />
+      </a>
+    </td>
+  </tr>
+</table>
