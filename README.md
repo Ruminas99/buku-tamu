@@ -1,66 +1,117 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Buku Tamu Pengunjung
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Sistem informasi buku tamu berbasis Laravel untuk pencatatan pengunjung di Pengadilan Tata Usaha Negara Medan. Aplikasi ini dirancang untuk memudahkan registrasi tamu, pemantauan kehadiran, serta pembuatan laporan harian dan bulanan secara lebih rapi dan terstruktur.
 
-## About Laravel
+## Ringkasan
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Aplikasi ini berfokus pada pencatatan kunjungan berdasarkan kategori tamu, seperti tamu sidang, layanan PTSP, tamu dinas, dan tamu mahasiswa. Selain form input pengunjung, tersedia juga dashboard ringkas, daftar kehadiran berdasarkan nomor perkara, serta ekspor laporan ke Excel.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Fitur Utama
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- Dashboard utama dengan navigasi kategori kunjungan yang cepat.
+- Form registrasi untuk:
+  - Tamu Sidang
+  - Layanan PTSP
+  - Tamu Dinas
+  - Tamu Mahasiswa
+- Halaman kehadiran untuk melihat status tamu berdasarkan nomor perkara.
+- Laporan harian yang menampilkan total tamu dan rincian kunjungan hari ini.
+- Laporan bulanan untuk rekap kunjungan per periode.
+- Export laporan ke Excel.
+- Tampilan UI modern, responsif, dan lebih nyaman digunakan di desktop maupun perangkat mobile.
 
-## Learning Laravel
+## Tumpukan Teknologi
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+- Laravel 10
+- PHP 8.1+
+- Blade Template
+- Vite
+- Maatwebsite Excel
+- Laravel Sanctum
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+## Struktur Halaman
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+- `/dashboard` - Halaman utama navigasi kunjungan.
+- `/pihak` - Form tamu sidang.
+- `/ptsp` - Form layanan PTSP.
+- `/dinas` - Form tamu dinas.
+- `/mahasiswa` - Form tamu mahasiswa.
+- `/kehadiran` - Daftar kehadiran berdasarkan nomor perkara.
+- `/laporan` - Laporan harian.
+- `/bulanan` - Laporan bulanan.
 
-## Laravel Sponsors
+## Prasyarat
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+- PHP 8.1 atau lebih baru
+- Composer
+- Node.js dan npm
+- Database MySQL atau MariaDB
 
-### Premium Partners
+## Instalasi
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+1. Clone repository ini.
+2. Jalankan instalasi dependency backend dan frontend:
 
-## Contributing
+```bash
+composer install
+npm install
+```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+3. Salin file environment dan atur konfigurasi aplikasi:
 
-## Code of Conduct
+```bash
+Copy-Item .env.example .env
+php artisan key:generate
+```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+4. Sesuaikan pengaturan database di file `.env`.
+5. Jalankan migrasi database jika diperlukan:
 
-## Security Vulnerabilities
+```bash
+php artisan migrate
+```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+6. Jalankan aplikasi pada dua terminal berbeda:
 
-## License
+```bash
+php artisan serve
+npm run dev
+```
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## Cara Menggunakan
+
+1. Buka halaman utama aplikasi.
+2. Pilih kategori tamu sesuai kebutuhan kunjungan.
+3. Isi form data pengunjung.
+4. Lihat ringkasan data pada dashboard laporan.
+5. Gunakan menu laporan harian atau bulanan untuk rekap dan ekspor data.
+
+## Tangkapan Layar
+
+Bagian ini bisa diisi dengan screenshot hasil website agar README terlihat lebih profesional. Simpan file gambar di folder `docs/screenshots/` lalu sesuaikan nama file jika berbeda.
+
+### Dashboard
+
+![Dashboard utama](docs/screenshots/dashboard.png)
+
+### Form Kunjungan
+
+![Form tamu sidang](docs/screenshots/form-pihak.png)
+
+### Laporan Harian
+
+![Laporan harian](docs/screenshots/laporan-harian.png)
+
+### Kehadiran
+
+![Halaman kehadiran](docs/screenshots/kehadiran.png)
+
+## Catatan Pengembangan
+
+- Aplikasi memakai Blade untuk render halaman.
+- Export laporan menggunakan library Excel.
+- Struktur route sudah dipisah berdasarkan kebutuhan kunjungan dan laporan.
+
+## Lisensi
+
+Proyek ini menggunakan lisensi MIT.
