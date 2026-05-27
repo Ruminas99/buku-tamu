@@ -88,23 +88,23 @@ npm run dev
 
 ## Tangkapan Layar
 
-Bagian ini bisa diisi dengan screenshot hasil website agar README terlihat lebih profesional. Simpan file gambar di folder `docs/screenshots/` lalu sesuaikan nama file jika berbeda.
+Bagian ini menampilkan screenshot hasil website yang disimpan di folder `public/docs/screenshots/`.
 
 ### Dashboard
 
-![Dashboard utama](docs/screenshots/dashboard.png)
+![Dashboard utama](public/docs/screenshots/dashboard.png)
 
 ### Form Kunjungan
 
-![Form tamu sidang](docs/screenshots/form-pihak.png)
+![Form tamu sidang](public/docs/screenshots/form-pihak.png)
 
 ### Laporan Harian
 
-![Laporan harian](docs/screenshots/laporan-harian.png)
+![Laporan harian](public/docs/screenshots/laporan-harian.png)
 
 ### Kehadiran
 
-![Halaman kehadiran](docs/screenshots/kehadiran.png)
+![Halaman kehadiran](public/docs/screenshots/kehadiran.png)
 
 ## Catatan Pengembangan
 
