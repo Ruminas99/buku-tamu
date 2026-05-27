@@ -10,7 +10,7 @@ use App\Models\Mahasiswa;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 use App\Exports\HarianExport;
-use App\Exports\BulananExport;
+use App\Exports\BulananExport; 
 use Maatwebsite\Excel\Facades\Excel;
 
 class LaporanController extends Controller
